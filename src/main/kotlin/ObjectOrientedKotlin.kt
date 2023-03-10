@@ -11,6 +11,9 @@ fun main(args: Array<String>) {
 
     var house = House(storey = 2)
     println(house.areaOfHouse) // 3.0
+
+    var calculator = Calculator()
+    calculator.add(2, 3)
 }
 
 // Classes
@@ -43,4 +46,28 @@ class House(area: Double = 2.0, var storey: Int) {
     constructor(storey: Int): this(3.0, storey) { // secondary constructor: It always calls primary constructor.
 
     }
+}
+
+class Calculator {
+    // This class will get a default constructor.
+
+    lateinit var message: String // lateinit means that we don't know its value when initializing, it will be initialized late. It will always be var.
+    fun add(a: Int, b: Int): Int {
+        return a + b
+    }
+}
+
+class Employee(name: String, age: Int) {
+    var name: String = name
+        get() { // getter returns the field value, and field is representing the variable.
+            return field.uppercase()
+        }
+    var age: Int = age
+        set(value) { // setter: value is the value of the field, and field is representing the variable.
+            if (value > 0) {
+                field = value
+            } else {
+                field = -1 * value
+            }
+        }
 }

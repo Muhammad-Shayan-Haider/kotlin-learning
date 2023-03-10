@@ -14,6 +14,8 @@ fun main(args: Array<String>) {
 
     var calculator = Calculator()
     calculator.add(2, 3)
+
+    var child = Child()
 }
 
 // Classes
@@ -24,18 +26,21 @@ class Car(val name: String, val type: String) { // properties, this is primary c
     }
 }
 
-class Person { // Class with initialized properties
+// Class with initialized properties
+class Person {
     val name = ""
     var age = 20
 }
 
-class Animal(nameParam: String, soundParam: String, val isMammal: Boolean) { // Class with constructor parameters and properties.
+// Class with constructor parameters and properties.
+class Animal(nameParam: String, soundParam: String, val isMammal: Boolean) {
     // Here nameParam and soundParam are only parameters (without val and var). And kingdom is property.
     // When we write val and var and primary constructor, then they become properties of classes.
     var name = nameParam.uppercase()
     var sound = soundParam.uppercase()
 }
 
+// init blocks and property initializers.
 class House(area: Double = 2.0, var storey: Int) {
     // init blocks and property initializers are executed in the order they are defined.
     var areaOfHouse: Double = 1.0
@@ -48,6 +53,7 @@ class House(area: Double = 2.0, var storey: Int) {
     }
 }
 
+// Default constructor, and lateinit.
 class Calculator {
     // This class will get a default constructor.
 
@@ -57,6 +63,7 @@ class Calculator {
     }
 }
 
+// Getters and setters.
 class Employee(name: String, age: Int) {
     var name: String = name
         get() { // getter returns the field value, and field is representing the variable.
@@ -70,4 +77,22 @@ class Employee(name: String, age: Int) {
                 field = -1 * value
             }
         }
+}
+
+// Inheritance.
+open class Parent { // open means class can be inherited.
+    val name: String = ""
+
+    init {
+        println("parent's init")
+    }
+    fun doSomething() {
+        println("in parent")
+    }
+}
+
+class Child: Parent() { // Class B inheriting A. First parent constructor is called and then child's constructor is called.
+    init {
+        println("child's init")
+    }
 }

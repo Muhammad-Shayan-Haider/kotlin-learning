@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
     var calculator = Calculator()
     calculator.add(2, 3)
 
-    var child = Child()
+    var child = Child(20)
 }
 
 // Classes
@@ -80,19 +80,28 @@ class Employee(name: String, age: Int) {
 }
 
 // Inheritance.
-open class Parent { // open means class can be inherited.
-    val name: String = ""
+open class Parent(val age: Int) { // open means class can be inherited.
+    open val name: String = "Parent"
 
     init {
         println("parent's init")
     }
-    fun doSomething() {
+    open fun doSomething() {
         println("in parent")
     }
 }
 
-class Child: Parent() { // Class B inheriting A. First parent constructor is called and then child's constructor is called.
+// Overriding properties and methods.
+class Child(age: Int): Parent(age) { // Class B inheriting A. First parent constructor is called and then child's constructor is called.
+    // If parent class has primary constructor, inheriting child class needs to implement parent's constructor.
+    override val name: String = "Child"
     init {
         println("child's init")
+    }
+
+    override fun doSomething() {
+        super.doSomething() // calling parent's implementation.
+
+        println("in child")
     }
 }

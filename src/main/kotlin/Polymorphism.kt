@@ -8,10 +8,10 @@ fun main() {
 
 // Polymorphism: Child can be instantiated from parent's reference and all the methods that are
 // present in parent can be overridden by child.
-open class Shape {
-    open fun area(): Double {
-        return 0.0
-    }
+// Abstract class and method. If one method or property in the class is abstract, the class will be abstract.
+// Abstract class cannot be instantiated. Abstract class can have no abtract methods or properties. 
+abstract class Shape {
+    abstract fun area(): Double
 }
 
 class Circle(val radius: Double): Shape() {

@@ -11,7 +11,7 @@ fun main() {
         if (obj is Circle) {
             println(obj.radius) // smart casting, Kotlin automatically casts the obj to circle.
         } else {
-            println((obj as Square).side) // casting 
+            println((obj as Square).side) // casting
         }
     }
 }

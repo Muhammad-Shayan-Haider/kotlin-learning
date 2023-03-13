@@ -34,7 +34,7 @@ class Person {
 
 // Class with constructor parameters and properties.
 class Animal(nameParam: String, soundParam: String, val isMammal: Boolean) {
-    // Here nameParam and soundParam are only parameters (without val and var). And kingdom is property.
+    // Here nameParam and soundParam are only parameters (without val and var). And isMammal is property.
     // When we write val and var and primary constructor, then they become properties of classes.
     var name = nameParam.uppercase()
     var sound = soundParam.uppercase()
@@ -81,7 +81,7 @@ class Employee(name: String, age: Int) {
 
 // Inheritance.
 open class Parent(val age: Int) { // open means class can be inherited.
-    open val name: String = "Parent"
+    open val name: String = "Parent" // open with property or method means that property or method can be overridden.
 
     init {
         println("parent's init")

@@ -10,6 +10,7 @@ fun main() {
 class Outer {
 
     var i = 9
+    
     // Nested class will always be instantiated with outer class. Nested class cannot access outer class variables.
     class Nested {
         fun test() {
